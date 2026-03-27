@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import uuid
 import json
@@ -7,8 +8,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs, urlparse, urlencode, quote
 from pathlib import Path
 
-HOST = "127.0.0.1"
-PORT = 8080
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 8080))
 DB_NAME = "konopa_orders_v2.db"
 DB_PATH = Path(DB_NAME)
 
